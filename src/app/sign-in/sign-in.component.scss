@@ -1,0 +1,88 @@
+.sign-in-container {
+  align-items: center;
+  
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  height: 100%;
+
+  .buttons {
+    text-align: center;
+    width: 200px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .parking {
+    width: 800px;
+    flex-direction: row;
+    height: 450px;
+  }
+
+  .parking-img {
+   position: absolute;
+
+  .circleBase {
+    border-radius: 50%;
+    position: absolute;
+}
+
+  .type2 {
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    color: white;
+    border: 3px solid #000;
+
+  
+}
+
+
+.occupied {
+  background: red;
+
+
+}
+
+.t1 {
+  left: 300px;
+  top: 60px;
+}
+
+.t2 {
+  left: 540px;
+  top: 100px;
+
+}
+
+.t3 {
+  left: 300px;
+  top: 250px;
+}
+
+.t4 {
+  left: 420px;
+  top: 350px;
+}
+
+.t5 {
+  left: 550px;
+  top: 400px;
+}
+
+}
+
+
+}
+
+@media (max-width: 425px) {
+  .sign-in-container {
+    & > div {
+      width: 80%;
+    }
+  }
+}

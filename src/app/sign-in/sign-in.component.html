@@ -1,0 +1,58 @@
+<div class="sign-in-container">
+  <div class="buttons">
+    <form [formGroup]="controlForm">
+
+    <button mat-button (click)="fillSpace()"
+    [disabled]="controlForm.invalid"
+    >Ingreso</button>
+
+    <button mat-button (click)="removeSpace()" 
+    [disabled]="controlForm.invalid" >Egreso</button>
+
+
+
+    <mat-form-field>
+      <mat-label> ID de usuario</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="ID"
+        formControlName="id"
+      />
+    </mat-form-field>
+
+    </form>
+
+  </div>
+
+  <div class="parking">
+
+
+    <div class="parking-img">
+      <div class="circleBase type2 t1" [ngClass]="{'occupied': lotes[0].occupied }"> 0 
+      
+        <div> {{lotes[0].id}}  </div>
+      
+      </div>
+      
+      <div class="circleBase type2 t2" [ngClass]="{'occupied': lotes[1].occupied}"> 1
+        
+        <div> {{lotes[1].id}}  </div>
+      </div>
+      <div class="circleBase type2 t3" [ngClass]="{'occupied': lotes[2].occupied}"> 2
+        
+        <div> {{lotes[2].id}}  </div>
+      </div>
+      <div class="circleBase type2 t4" [ngClass]="{'occupied': lotes[3].occupied}"> 3 
+
+        <div> {{lotes[3].id}}  </div>
+
+      </div>
+      <div class="circleBase type2 t5" [ngClass]="{'occupied': lotes[4].occupied}"> 4
+        
+        <div> {{lotes[4].id}}  </div>
+      </div>
+      <img src="../../assets/a.jpg" alt="Yes">
+    </div>
+  </div>
+</div>
