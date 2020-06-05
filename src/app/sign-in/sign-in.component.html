@@ -2,11 +2,11 @@
   <div class="buttons">
     <form [formGroup]="controlForm">
 
-    <button mat-button (click)="fillSpace()"
+    <button mat-button  color="primary" (click)="fillSpace()"
     [disabled]="controlForm.invalid"
     >Ingreso</button>
 
-    <button mat-button (click)="removeSpace()" 
+    <button mat-button color="primary" (click)="removeSpace()" 
     [disabled]="controlForm.invalid" >Egreso</button>
 
 
