@@ -153,7 +153,7 @@ return seconds;
         break;
       }
     }
-    alert("Se libero lote " + chingon + "Debes pagar $" + this.getTime(chingon2) * 10);
+    alert("Se libero lote " + chingon + "Debes pagar $" + this.getTime(chingon2) * .5);
 
   }
 
