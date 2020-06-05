@@ -17,8 +17,56 @@ export class SignInComponent implements OnInit {
   
   orderedLotes = [];
 
+  controlForm: FormGroup;
+
+  lotes: Array<any> = [
+    {
+      name: "lote 0",
+      occupied: true,
+      distanceToEstablishment: 20,
+      id: "Lupita",
+      time: null
+
+    },
+    {
+      name: "lote 1",
+
+      occupied: true,
+      distanceToEstablishment: 30,
+      id: "Sarahi",
+      time: null
+    },
+    {
+      name: "lote 2",
+
+      occupied: false,
+      distanceToEstablishment: 50,
+      id: "",
+      time: null
+    },
+    {
+      name: "lote 3",
+
+      occupied: false,
+      distanceToEstablishment: 70,
+      id: "",
+      time: null
+    },
+    {
+      name: "lote 4",
+
+      occupied: false,
+      distanceToEstablishment: 100,
+      id: "",
+      time: null
+    }
+
+  ]
+
   ngOnInit() {
 
+    this.lotes[0].time = new Date();
+    this.lotes[1].time = new Date();
 
     this.controlForm = this.fb.group({
       id: [null, [Validators.required]],
@@ -43,46 +91,19 @@ export class SignInComponent implements OnInit {
 
   }
 
-  controlForm: FormGroup;
+ 
 
-  lotes: Array<any> = [
-    {
-      name: "lote 0",
-      occupied: true,
-      distanceToEstablishment: 20,
-      id: "Lupita"
 
-    },
-    {
-      name: "lote 1",
 
-      occupied: true,
-      distanceToEstablishment: 30,
-      id: "Sarahi"
-    },
-    {
-      name: "lote 2",
 
-      occupied: false,
-      distanceToEstablishment: 50,
-      id: ""
-    },
-    {
-      name: "lote 3",
+  getTime (time) {
 
-      occupied: false,
-      distanceToEstablishment: 70,
-      id: ""
-    },
-    {
-      name: "lote 4",
 
-      occupied: false,
-      distanceToEstablishment: 100,
-      id: ""
-    }
+let endDate   = new Date();
+var seconds = (endDate.getTime() - time.getTime()) / 1000;
+return seconds;
 
-  ]
+  }
 
 
   fillSpace() {
@@ -97,12 +118,15 @@ export class SignInComponent implements OnInit {
 
       if ( !this.lotes[index].occupied ) {
         this.lotes[index].occupied = true;
+        this.lotes[index].time = new Date();
         this.lotes[index].id = this.controlForm.get("id").value;
         chingon = this.lotes[index].name;
         break;
       }
       
     }
+
+
 
 
     alert("Ve al slot " + chingon);
@@ -116,16 +140,20 @@ export class SignInComponent implements OnInit {
   removeSpace() {
 
    let chingon;
+   let chingon2;
+
 
     for (let index = 0; index < this.lotes.length; index++) {
       if ( this.lotes[index].occupied && this.controlForm.get("id").value === this.lotes[index].id) {
         this.lotes[index].occupied = false;
         this.lotes[index].id = ""
         chingon = this.lotes[index].name;
+        chingon2 = this.lotes[index].time;
+
         break;
       }
     }
-    alert("Se libero lote " + chingon);
+    alert("Se libero lote " + chingon + "Debes pagar $" + this.getTime(chingon2) * 10);
 
   }
 
